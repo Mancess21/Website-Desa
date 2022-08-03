@@ -1,0 +1,76 @@
+{%extends "admin/base.html"%}
+
+{% block konten %}
+<div class="row my-4">
+        <div class="col-lg-12 col-md-6 mb-md-0 mb-4">
+          <div class="card">
+            <div class="card-header pb-0">
+              <div class="row">
+                <div class="col-lg-8">
+                        <p>Masukan Perubahan Data Profil |<a href="{{ url_for ('Sadmin.profil2')}}">*Kembali </a></p>
+                        <form method="POST">
+                            {{form.hidden_tag()}}
+                            <div class="form-group">
+                                {{form.nama_desa.label(class="form-control-label")}}
+                                {{form.nama_desa(class="form-control ")}}
+                            </div>
+                            <div class="form-group">
+                                {{form.visi.label(class="form-control-label")}}
+                                {{form.visi(class="form-control ")}}
+                            </div>
+          
+                            <div class="form-group">
+                                {{form.misi.label(class="form-control-label")}}
+                                {{form.misi(class="form-control ")}}
+                            </div>
+                            <div class="form-group">
+                                {{form.alamat.label(class="form-control-label")}}
+                                {{form.alamat(class="form-control ")}}
+                            </div>
+                            <div class="form-group">
+                                    {{form.sejarah.label(class="form-control-label")}}
+                                    {{form.sejarah(class="form-control ")}}
+                            </div>
+                            <div class="form-group">
+                                    {{form.peraturan.label(class="form-control-label")}}
+                                    {{form.peraturan(class="form-control ")}}
+                            </div>
+                            <div class="form-group">
+                                    {{form.geografis.label(class="form-control-label")}}
+                                    {{form.geografis(class="form-control ")}}
+                            </div>
+                            <div class="form-group">
+                                    {{form.kontak.label(class="form-control-label")}}
+                                    {{form.kontak(class="form-control ")}}
+                            </div>
+                    
+                            <div class="form-group">
+                                {{form.submit(class="btn btn-primary")}}
+                            </div>
+                        </form>
+                        {{ ckeditor.load() }}
+                         {{ ckeditor.config() }}
+                       <!-- kolom untuk form inputan -->   
+                  
+                    
+                    
+                </div>
+
+                <div class="col-lg-4">
+                    
+                   <!-- kolom untuk tabel --> 
+
+                </div>
+                
+                
+                
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2"> 
+            </div>
+          </div>
+        </div>
+        
+</div>
+
+{% endblock konten %}

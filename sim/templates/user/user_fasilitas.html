@@ -1,0 +1,94 @@
+{%extends "user/base.html"%}
+
+
+
+
+{% block konten %} 
+
+ <section id="wisata" class="wisata">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>DATA FASILITAS</h2>
+          <h3>FASILITAS<span> DESA TEMBAL</span></h3>
+          <p>Berikut kami informasi Fasilitas disekitar desa tembal</p>
+        </div>
+
+       <div class="table-responsive p-0">
+                      <table class="table align-items-center mb-0 table-hover ">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Lokasi</th>
+                                <th>Status</th>
+                                <th>Tahun Berdiri</th>
+                                <th>Kategori</th>
+                                <th>Keterangan</th>
+                                 <th>Foto</th>
+                
+                              
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for data in prasarana.items%}
+                            <tr>
+                                <td>{{data.id}}</ol></td>
+                                <td>{{data.nama}}</td>
+                                <td>{{data.lokasi}}</td>
+                                <td>{{data.status}}</td>
+                                <td>{{data.tahun_berdiri}}</td>
+                                <td>{{data.kategori}}</td>
+                                <td>{{data.keterangan}}</td>
+                                <td>
+                                     <img src="{{url_for('static', filename='foto/' + data.foto)}}" class="img-fluid" alt="">
+                                </td>
+                                
+                                
+                              
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+
+                    <!-- kode pagenation -->
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            {% if prasarana.has_prev %}
+                            <li class="page-item"><a class="page-link" href="{{ url_for('Suser.usersarana', page=prasarana.prev_num)}}"><<</a></li>
+                            {% else %}
+                            <li class="page-item disabled"><a class="page-link"><<</a>
+                            {% endif %}
+                            </li>
+    
+                            {% for page in prasarana.iter_pages(left_edge=3, right_edge=3) %}
+                            {% if page %}
+                                {% if page==prasarana.page %}
+                                <li class="page-item active"><a class="page-link" href="{{ url_for('Suser.usersarana', page=page)}}">{{ page }}</a></li>
+                                {% else %}
+                                <li class="page-item"><a class="page-link" href="{{ url_for('Suser.usersarana', page=page)}}">{{ page }}</a></li>
+                                {% endif %}
+                            {% else %}
+                            <li class="page-item disabled" id="example_ellipsis"><a class="page-link" href="#">...</a></li>
+                            {% endif %}
+                            {% endfor %}
+        
+                            {% if prasarana.has_next %}
+                            <li class="page-item"><a class="page-link" href="{{ url_for('Suser.usersarana', page=prasarana.next_num)}}">>></a></li> <!-- next-->
+                            {% else %}
+                            <li class="page-item disabled"><a class="page-link" href="#">>></a></li>
+                            {% endif %}
+                        </ul>
+                        </nav>
+                    <!-- akhir kode pagenation -->
+
+
+
+                </div>
+          
+
+   
+    </section><!-- End Team Section -->
+      
+{% endblock konten %}

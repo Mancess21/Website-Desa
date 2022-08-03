@@ -1,0 +1,89 @@
+{%extends "admin/base.html"%}
+
+{% block konten %}
+<div class="row my-4">
+        <div class="col-lg-12 col-md-6 mb-md-0 mb-4">
+          <div class="card">
+            <div class="card-header pb-0">
+              <div class="row">
+                <div class="col-lg-4">
+                    <p>Masukan Data Pendidikan</p>
+                      <form method="POST">
+                          {{form.hidden_tag()}}
+                          <div class="form-group">
+                              {{form.no_ktp.label(class="form-control-label")}}
+                              {{form.no_ktp(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.no_kk.label(class="form-control-label")}}
+                              {{form.no_kk(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.nama.label(class="form-control-label")}}
+                              {{form.nama(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.tgl_lahir.label(class="form-control-label")}}
+                              {{form.tgl_lahir(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.j_kelamin.label(class="form-control-label")}}
+                              {{form.j_kelamin(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.agama.label(class="form-control-label")}}
+                              {{form.agama(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.pendidikan.label(class="form-control-label")}}
+                              {{form.pendidikan(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.pekerjaan.label(class="form-control-label")}}
+                              {{form.pekerjaan(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.alamat.label(class="form-control-label")}}
+                              {{form.alamat(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.RT.label(class="form-control-label")}}
+                              {{form.RT(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.RW.label(class="form-control-label")}}
+                              {{form.RW(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.s_nikah.label(class="form-control-label")}}
+                              {{form.s_nikah(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.kewarganegaraan.label(class="form-control-label")}}
+                              {{form.kewarganegaraan(class="form-control ")}}
+                          </div>
+                  
+                          <div class="form-group">
+                              {{form.submit(class="btn btn-primary")}}
+                          </div>
+                  
+                      </form>
+                    
+                </div>
+
+                <div class="col-lg-8">
+                    <p></p>
+                </div>
+                
+                
+                
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2"> 
+            </div>
+          </div>
+        </div>
+        
+</div>
+
+{% endblock konten %}

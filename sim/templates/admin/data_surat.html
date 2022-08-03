@@ -1,0 +1,188 @@
+{%extends "admin/base.html"%}
+
+
+
+{% block konten %}
+<div class="row my-4">
+        <div class="col-lg-12 col-md-6 mb-md-0 mb-4">
+          <div class="card">
+            <div class="card-header pb-0">
+              <div class="row">
+                <div class="col-lg-4">
+                    <p>Masukan Data Surat</p>
+                      <form method="POST" enctype="multipart/form-data">
+                          {{form.hidden_tag()}}
+                        <div class="form-group">
+                            {{form.no_surat.label(class="form-control-label")}}
+                            {% if form.no_surat.errors %}
+                                 {{form.no_surat(class="form-control is-invalid")}}
+                        
+                                 <div class="invalid-feedback">
+                                     {%for error in form.no_surat.errors %}
+                                     <span>{{error}}</span>
+                                     {% endfor %}
+                                 </div>
+                            {%else%}
+                                {{form.no_surat(class="form-control")}}
+                            
+                            {%endif%}
+                        </div>
+                        <div class="form-group">
+                            {{form.nik.label(class="form-control-label")}}
+                            {% if form.nik.errors %}
+                                 {{form.nik(class="form-control is-invalid")}}
+                        
+                                 <div class="invalid-feedback">
+                                     {%for error in form.nik.errors %}
+                                     <span>{{error}}</span>
+                                     {% endfor %}
+                                 </div>
+                            {%else%}
+                                {{form.nik(class="form-control")}}
+                            
+                            {%endif%}
+                        </div>
+                        <div class="form-group">
+                            {{form.jenis_surat.label(class="form-control-label")}}
+                            {% if form.jenis_surat.errors %}
+                                 {{form.jenis_surat(class="form-control is-invalid")}}
+                        
+                                 <div class="invalid-feedback">
+                                     {%for error in form.jenis_surat.errors %}
+                                     <span>{{error}}</span>
+                                     {% endfor %}
+                                 </div>
+                            {%else%}
+                                {{form.jenis_surat(class="form-control")}}
+                            
+                            {%endif%}
+                        </div>
+
+                        <div class="form-group">
+                            {{form.keperluan.label(class="form-control-label")}}
+                            {% if form.keperluan.errors %}
+                                 {{form.keperluan(class="form-control is-invalid")}}
+                        
+                                 <div class="invalid-feedback">
+                                     {%for error in form.keperluan.errors %}
+                                     <span>{{error}}</span>
+                                     {% endfor %}
+                                 </div>
+                            {%else%}
+                                {{form.keperluan(class="form-control")}}
+                            
+                            {%endif%}
+                        </div>
+
+                          <div class="form-group">
+                              {{form.submit(class="btn btn-primary")}}
+                          </div>
+                  
+                      </form>
+                    
+                </div>
+
+                <div class="col-lg-8">
+                    <p>Data Surat</p>
+                <form action="" method="POST" > <!-- form search -->
+                    {{form.hidden_tag()}}
+                    <div class="input-group">
+                    <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" placeholder="Nama.." name="tag" id="tag">
+                    <input class="btn btn-bg-primary" type="submit" value="Cari">
+                </div>                   
+                </form>
+
+                  <div class="table-responsive p-0">
+                      <table class="table align-items-center mb-0 table-hover ">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>No Surat</th>
+                                <th>Nama</th>
+                
+                                <th>Proses</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for data in surat.items%}
+                            <tr>
+                                <td>{{data.id}}</ol></td>
+                                <td>{{data.no_surat}}</td>
+                                <td>{{data.penduduk.nama}}</td>
+                                
+                                <td>
+                                <a class="btn bg-gradient-danger btn-sm" href="/hapusprasarana/{{data.id}}" onclick="return confirm('Yakin data akan di hapus')">Hapus</a>
+                                
+                                
+                                <div class="dropdown">
+                                        <button class="btn bg-gradient-success dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                          Cetak
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                          <li><a class="dropdown-item" href="{{url_for('Sadmin.cetaknikah', ed_id=data.id)}}">Ket Belum Menikah</a></li>
+                                          <li><a class="dropdown-item" href="{{url_for('Sadmin.cetakdomisili', ed_id=data.id)}}">Ket Domisili</a></li>
+                                          <li><a class="dropdown-item" href="{{url_for('Sadmin.cetaksbm', ed_id=data.id)}}">Ket Tidak Mampu</a></li>
+                                        </ul>
+                                </div>
+                                
+
+                                
+                                </td>
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+
+                    <!-- kode pagenation -->
+
+                    
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            {% if surat.has_prev %}
+                            <li class="page-item"><a class="page-link" href="{{ url_for('Sadmin.sarana', page=surat.prev_num)}}"><<</a></li>
+                            {% else %}
+                            <li class="page-item disabled"><a class="page-link"><<</a>
+                            {% endif %}
+                            </li>
+    
+                            {% for page in surat.iter_pages(left_edge=3, right_edge=3) %}
+                            {% if page %}
+                                {% if page==surat.page %}
+                                <li class="page-item active"><a class="page-link" href="{{ url_for('Sadmin.sarana', page=page)}}">{{ page }}</a></li>
+                                {% else %}
+                                <li class="page-item"><a class="page-link" href="{{ url_for('Sadmin.sarana', page=page)}}">{{ page }}</a></li>
+                                {% endif %}
+                            {% else %}
+                            <li class="page-item disabled" id="example_ellipsis"><a class="page-link" href="#">...</a></li>
+                            {% endif %}
+                            {% endfor %}
+        
+                            {% if surat.has_next %}
+                            <li class="page-item"><a class="page-link" href="{{ url_for('Sadmin.sarana', page=surat.next_num)}}">>></a></li> <!-- next-->
+                            {% else %}
+                            <li class="page-item disabled"><a class="page-link" href="#">>></a></li>
+                            {% endif %}
+                        </ul>
+                        </nav>
+                    <!-- akhir kode pagenation -->
+
+
+
+                </div>
+
+                </div>
+                
+                
+                
+            </div>
+            </div>
+            <div class="card-body px-0 pb-2"> 
+            </div>
+        </div>
+        </div>
+        
+</div>
+
+{% endblock konten %}

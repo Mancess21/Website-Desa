@@ -1,0 +1,127 @@
+{%extends "user/base.html"%}
+{% block konten %} 
+<section id="wisata" class="wisata">
+    <div class="container">
+        <div class="section-title">
+            <h3>DATA<span> DEMOGRAFI</span></h3>
+            <p>Berikut Ini Informasi Demografi Desa Tembal</p>
+        </div>
+
+        <div class="row">
+            <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0 table-hover ">
+                    <thead>
+                        <tr>
+                            <th>Tahun</th>
+                            <th>No</th>
+                            <th>Perempuan</th>
+                            <th>Laki-Laki</th>
+                            <th>Laju</th>  
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for data in demografi.items%}
+                        <tr>
+                            <td>{{data.id}}</ol></td>
+                            <td>{{data.tahun}}</td>
+                            <td>{{data.jumlah_l}}</td>
+                            <td>{{data.jumlah_p}}</td>
+                            <td>{{data.laju_pertumbuhan}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+            <!-- kode pagenation -->
+            <!-- akhir kode pagenation -->
+        </div>
+    </div>
+</section>
+<!-- End Team Section -->
+<br>
+<br>
+<!-- Pendidikan -->
+<section id="wisata" class="wisata">
+    <div class="container">
+        <div class="section-title">
+            <h3>DATA<span> PENDIDIKAN</span></h3>
+            <p>Berikut Kami Informasi Pendidikan Desa Tembal</p>
+        </div>
+        <div class="row">
+            <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0 table-hover ">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tahun</th>
+                            <th>Tidak SD</th>
+                            <th>Tamat Sd</th>
+                            <th>Tamat Smp</th>
+                            <th>Tamat Sma</th>
+                            <th>Tamat S1</th>
+                            <th>Tamat S2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for data in pendidikan.items%}
+                        <tr>
+                            <td>{{data.id}}</ol></td>
+                            <td>{{data.tahun}}</td>
+                            <td>{{data.tdk_sd}}</td>
+                            <td>{{data.tamat_sd}}</td>
+                            <td>{{data.tamat_smp}}</td>
+                            <td>{{data.tamat_sma}}</td>
+                            <td>{{data.tamat_s1}}</td>
+                            <td>{{data.tamat_s2}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+                <!-- kode pagenation -->
+                <!-- akhir kode pagenation -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Team Section -->
+<br>
+<br>
+<!-- Putus Sekolah -->
+<section id="wisata" class="wisata">
+    <div class="container">
+        <div class="section-title">
+            <h3>DATA<span> Putus Sekolah</span></h3>
+            <p>Berikut Kami Informasi Putus Sekolah Desa Tembal</p>
+        </div>
+        <div class="row">
+            <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0 table-hover ">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tahun</th>
+                            <th>SD</th>
+                            <th>Sd</th>
+                            <th>Smp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for data in ptssklh.items%}
+                        <tr>
+                            <td>{{data.id}}</ol></td>
+                            <td>{{data.tahun}}</td>
+                            <td>{{data.sd}}</td>
+                            <td>{{data.smp}}</td>
+                            <td>{{data.sma}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+                <!-- kode pagenation -->
+                <!-- akhir kode pagenation -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Team Section -->
+{% endblock konten %}

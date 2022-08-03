@@ -1,0 +1,96 @@
+{%extends "user/base.html"%}
+
+
+
+
+{% block konten %} 
+
+ <section id="wisata" class="wisata">
+     <div class="container">
+         <div class="section-title">
+          <h2>{{d_wisata.kategori}}|{{d_wisata.tanggal}}</h2>
+          <h3>Kunjungi Wisata<span> {{d_wisata.nama}}</span></h3>
+          <p>Lokasi:{{d_wisata.lokasi}}|{{d_wisata.status}}|{{d_wisata.nama_pemilik}}</p>
+        </div> 
+
+        <div class="row">
+        <div class="col-md-4">
+          <div class="card" style="width: 25rem;">
+               <img src="{{url_for('static', filename='foto/' + d_wisata.gambar)}}" class="card-img-top" alt="sory gambar belum tersedia">
+              <div class="card-body">
+               <h5 class="card-title"><span> {{d_wisata.nama}}</span></h5>
+               <ul>
+                <li>Status :{{d_wisata.status}}</li>
+                <li>Nama Pemilik :{{d_wisata.nama_pemilik}}</li>
+                <li>kategori :{{d_wisata.nkategori}}</li>
+               </ul>
+              <a href="#" class="btn btn-primary">Kategori : {{d_wisata.kategori}}</a>
+         </div>
+</div>
+
+        </div>
+         <div class="col-md-8">
+               <div class="alert alert-primary" role="alert">
+              <p>Deskripsi</p>
+               {{d_wisata.deskripsi}} <br>
+               <div>
+                <video width="500" height="300" controls>
+                    <source src="{{url_for('static', filename='foto/' + d_wisata.video)}}" type="video/mp4">
+                  </video>
+               </div>
+               
+              </div>
+
+        </div>
+
+
+        </div>
+
+      </div>
+
+    </section><!-- End Team Section -->
+      
+{% endblock konten %}
+
+<div class="row">
+          <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="{{url_for('static', filename='foto/' + d_wisata.gambar)}}" class="img-fluid" alt="" width="px">
+                <!-- <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div> -->
+              </div>
+
+              
+
+              
+            </div>
+          </div>
+
+           <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="{{url_for('static', filename='foto/' + d_wisata.gambar)}}" class="img-fluid" alt="">
+                <!-- <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div> -->
+              </div>
+
+              
+
+              
+            </div>
+          </div>
+
+         
+
+              
+            </div>
+          </div>

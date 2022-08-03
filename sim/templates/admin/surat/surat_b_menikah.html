@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Surat</title>
+    <style>
+        table tr .text2{
+          margin-right: 600px;
+          align-content: right;
+        }
+        table tr td {
+            font-size: 13;
+        }
+        table tr .text{
+            text-align: right;
+            align-items: left;
+            font-size: 13;
+        }
+        table tr .kiri{
+          z-index: 300px;
+          position: absolute;
+            font-size: 13;
+        }
+        table .sorong {
+          margin-left: 60px;
+            font-size: 13;
+        }
+    </style>
+</head>
+<body>
+  <center>
+      <table>
+          <tr>
+              <td><img src="img/logo desa tembal.png" width="90" height="90" ></td>
+              <td>
+                  <center>
+                      <font size="4" >PEMERINTAH KABUPATEN HALMAHERA SELATAN</font><br>
+                      <font size="5" ><b>KECAMATAN BACAN SELATAN</b></font><br>
+                      <font size="5" ><b>DESA TEMBAL</b></font><br>
+                      <font size="3" >Jln. Trans Halmahera, Desa Tembal , Kec. Bacan Selatan, Kab. Halmahera Selatan</font><br>
+                      <font size="3" >Website : https://tembal.desa.id - Email :......</font><br>
+                  </center>
+              </td>
+          </tr>
+          <tr>
+              <td colspan="2"><hr></td>
+          </tr>
+      </table>
+      <table width="537" >
+          <tr>
+              <td>
+                <center>
+                        <font size="4"><b><u>{{d_surat.jenis_surat}}</u></b></font><br>
+                        <font size="4">Nomor :{{d_surat.no_surat}} </font><br>
+
+                </center>
+              </td>
+          </tr>
+      </table>
+      <br>
+      <table width="600">
+          <tr>
+              <td>
+                  <font size="3">Yang Bertanda tangan dibawah ini Kepalah Desa Tembal, Kecamatan Bacan Selatan, Kabupaten Halmahera Selatan menerangkan dengan sebenarnya, bahwa : </font>
+              </td>
+          </tr>
+        </table>
+        <table width="520">
+                <tr>
+                        <td>Nama</td>
+                        <td width="300">:{{d_surat.penduduk.nama}}</td>
+                      </tr>
+                      <tr>
+                        <td>NIK</td>
+                        <td width="300">:{{d_surat.penduduk.no_ktp}}</td>
+                      </tr>
+                      <tr>
+                        <td>Jenis Kelamin</td>
+                        <td width="300">:{{d_surat.penduduk.j_kelamin}}</td>
+                      </tr>
+                      <tr>
+                        <td>Tempat, Tanggal Lahir</td>
+                        <td width="300">:{{d_surat.penduduk.tgl_lahir}}</td>
+                      </tr>
+                      <tr>
+                        <td>Warga Negara / Agama</td>
+                        <td width="300">:{{d_surat.penduduk.kewarganegaraan}}/{{d_surat.penduduk.agama}}</td>
+                      </tr>
+                      <tr>
+                        <td>Pekerjaan</td>
+                        <td width="300">:{{d_surat.penduduk.pekerjaan}}</td>
+                      </tr>
+                      <tr>
+                        <td>Status Perkawinan</td>
+                        <td width="300">:{{d_surat.penduduk.s_nikah}}</td>
+                      </tr>
+                      <tr>
+                        <td>Alamat</td>
+                        <td width="300">:{{d_surat.penduduk.alamat}}</td>
+                      </tr>
+        </table>
+        <table width="600">
+            <tr>
+                <td>
+                    <font size="3">Nama tersebut diatas adalah benar warga Desa Tembal, Kecamatan Bacan Selatan, Kabupaten Halmahera Selatan. Berdasarkan Keterangan yang ada pada kami benar bahwa yang bersangkutan Benar-benar BELUM MENIKAH.</font>
+                </td>
+            </tr>
+          </table>
+        <table width="600">
+            <tr>
+                <td>
+                    <font size="3">Demikian surat keterangan ini dibuat dengan sebenarnya, untuk dipergunakan sebagaimana mestinya.</font>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <table width="600">
+                <tr>
+                  <td class="kiri" align="center">MENGETAHUI, <br> {{camat.jabatan}}
+                    <br><br><br> <br> <br> {{camat.nama}}</td>
+                </tr>
+                <tr>
+                    <td class="text2" align="right">Tembal, 19 Juni 2022 <br>{{kades.jabatan}} <br><br><br> <br> <br>{{kades.nama}}</td>
+                </tr>
+        </table>
+  </center>  
+</body>
+</html>

@@ -1,0 +1,239 @@
+{%extends "admin/base.html"%}
+
+{% block konten %}
+<div class="row my-4">
+        <div class="col-lg-12 col-md-6 mb-md-0 mb-4">
+          <div class="card">
+            <div class="card-header pb-0">
+              <div class="row">
+                <div class="col-lg-4">
+                    <p>Masukan Data Wisata</p>
+                      <form method="POST" enctype="multipart/form-data">
+                          {{form.hidden_tag()}}
+                        <div class="form-group">
+                            {{form.nama.label(class="form-control-label")}}
+                            {% if form.nama.errors %}
+                                 {{form.nama(class="form-control is-invalid")}}
+                        
+                                 <div class="invalid-feedback">
+                                     {%for error in form.nama.errors %}
+                                     <span>{{error}}</span>
+                                     {% endfor %}
+                                 </div>
+                            {%else%}
+                                {{form.nama(class="form-control")}}
+                            
+                            {%endif%}
+                        </div>
+                        <div class="form-group">
+                            {{form.lokasi.label(class="form-control-label")}}
+                            {% if form.lokasi.errors %}
+                                 {{form.lokasi(class="form-control is-invalid")}}
+                        
+                                 <div class="invalid-feedback">
+                                     {%for error in form.lokasi.errors %}
+                                     <span>{{error}}</span>
+                                     {% endfor %}
+                                 </div>
+                            {%else%}
+                                {{form.lokasi(class="form-control")}}
+                            
+                            {%endif%}
+                        </div>
+                        <div class="form-group">
+                            {{form.kategori.label(class="form-control-label")}}
+                            {% if form.kategori.errors %}
+                                 {{form.kategori(class="form-control is-invalid")}}
+                        
+                                 <div class="invalid-feedback">
+                                     {%for error in form.kategori.errors %}
+                                     <span>{{error}}</span>
+                                     {% endfor %}
+                                 </div>
+                            {%else%}
+                                {{form.kategori(class="form-control")}}
+                            
+                            {%endif%}
+                        </div>
+                        <div class="form-group">
+                            {{form.status.label(class="form-control-label")}}
+                            {% if form.status.errors %}
+                                 {{form.status(class="form-control is-invalid")}}
+                        
+                                 <div class="invalid-feedback">
+                                     {%for error in form.status.errors %}
+                                     <span>{{error}}</span>
+                                     {% endfor %}
+                                 </div>
+                            {%else%}
+                                {{form.status(class="form-control")}}
+                            
+                            {%endif%}
+                        </div>
+                        <div class="form-group">
+                            {{form.nama_pemilik.label(class="form-control-label")}}
+                            {% if form.nama_pemilik.errors %}
+                                 {{form.nama_pemilik(class="form-control is-invalid")}}
+                        
+                                 <div class="invalid-feedback">
+                                     {%for error in form.nama_pemilik.errors %}
+                                     <span>{{error}}</span>
+                                     {% endfor %}
+                                 </div>
+                            {%else%}
+                                {{form.nama_pemilik(class="form-control")}}
+                            
+                            {%endif%}
+                        </div>
+                        <div class="form-group">
+                            {{form.deskripsi.label(class="form-control-label")}}
+                            {% if form.deskripsi.errors %}
+                                 {{form.deskripsi(class="form-control is-invalid")}}
+                        
+                                 <div class="invalid-feedback">
+                                     {%for error in form.deskripsi.errors %}
+                                     <span>{{error}}</span>
+                                     {% endfor %}
+                                 </div>
+                            {%else%}
+                                {{form.deskripsi(class="form-control")}}
+                            
+                            {%endif%}
+                        </div>
+                        <div class="form-group">
+                            {{form.gambar.label(class="form-control-label")}}
+                            {% if form.gambar.errors %}
+                                 {{form.gambar(class="form-control is-invalid")}}
+                        
+                                 <div class="invalid-feedback">
+                                     {%for error in form.gambar.errors %}
+                                     <span>{{error}}</span>
+                                     {% endfor %}
+                                 </div>
+                            {%else%}
+                                {{form.gambar(class="form-control")}}
+                            
+                            {%endif%}
+                        </div>
+                        <div class="form-group">
+                            {{form.video.label(class="form-control-label")}}
+                            {% if form.video.errors %}
+                                 {{form.video(class="form-control is-invalid")}}
+                        
+                                 <div class="invalid-feedback">
+                                     {%for error in form.video.errors %}
+                                     <span>{{error}}</span>
+                                     {% endfor %}
+                                 </div>
+                            {%else%}
+                                {{form.video(class="form-control")}}
+                            
+                            {%endif%}
+                        </div>
+
+
+
+
+                          
+                  
+                          <div class="form-group">
+                              {{form.submit(class="btn btn-primary")}}
+                          </div>
+                  
+                      </form>
+                    
+                </div>
+
+                <div class="col-lg-8">
+                    <p>Data Wisata</p>
+                <form action="" method="POST" > <!-- form search -->
+                    {{form.hidden_tag()}}
+                    <div class="input-group">
+                    <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" placeholder="wisata/kuliner.." name="tag" id="tag">
+                    <input class="btn btn-bg-primary" type="submit" value="Cari">
+                </div>                   
+                </form>
+
+                  <div class="table-responsive p-0">
+                      <table class="table align-items-center mb-0 table-hover ">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Lokasi</th>
+                                <th>Kategori</th>
+                                <th>Status</th>
+                
+                                <th>Proses</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for data in wisata.items%}
+                            <tr>
+                                <td>{{data.id}}</ol></td>
+                                <td>{{data.nama}}</td>
+                                <td>{{data.lokasi}}</td>
+                                <td>{{data.kategori}}</td>
+                                <td>{{data.status}}</td>
+                                
+                                
+                                <td>
+                                  <a class="btn bg-gradient-warning" href="{{url_for('Sadmin.update_wisata', ed_id=data.id)}}">Ubah</a>
+                                  <a class="btn bg-gradient-danger" href="/hapuswisata/{{data.id}}" onclick="return confirm('Yakin data akan di hapus')">Hapus</a>
+                                </td>
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                      </table>
+
+                      <!-- kode pagenation -->
+                      <nav aria-label="Page navigation example">
+                          <ul class="pagination">
+                            {% if wisata.has_prev %}
+                              <li class="page-item"><a class="page-link" href="{{ url_for('Sadmin.data_wisata', page=wisata.prev_num)}}"><<</a></li>
+                            {% else %}
+                              <li class="page-item disabled"><a class="page-link"><<</a>
+                            {% endif %}
+                              </li>
+          
+                            {% for page in wisata.iter_pages(left_edge=3, right_edge=3) %}
+                            {% if page %}
+                                {% if page==wisata.page %}
+                                <li class="page-item active"><a class="page-link" href="{{ url_for('Sadmin.data_wisata', page=page)}}">{{ page }}</a></li>
+                                {% else %}
+                                <li class="page-item"><a class="page-link" href="{{ url_for('Sadmin.data_wisata', page=page)}}">{{ page }}</a></li>
+                                {% endif %}
+                            {% else %}
+                            <li class="page-item disabled" id="example_ellipsis"><a class="page-link" href="#">...</a></li>
+                            {% endif %}
+                            {% endfor %}
+          
+                            {% if wisata.has_next %}
+                            <li class="page-item"><a class="page-link" href="{{ url_for('Sadmin.data_wisata', page=wisata.next_num)}}">>></a></li> <!-- next-->
+                            {% else %}
+                            <li class="page-item disabled"><a class="page-link" href="#">>></a></li>
+                            {% endif %}
+                          </ul>
+                        </nav>
+                      <!-- akhir kode pagenation -->
+
+
+
+                  </div>
+
+                </div>
+                
+                
+                
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2"> 
+            </div>
+          </div>
+        </div>
+        
+</div>
+
+{% endblock konten %}

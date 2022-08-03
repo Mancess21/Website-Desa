@@ -1,0 +1,125 @@
+{% extends "base2.html" %}
+
+{% block title %}
+{% endblock title %}
+
+{% block konten %}
+<div class="container">
+    <div class="row row-cols-1 row-cols-3">
+        <div class="col-md-12 mb-8">
+            <table class="table table-hover table-light">
+                <tr>
+                    <th>Nama Desa</th>
+                    <th>Visi</th>
+                    <th>Misi</th>
+                    <th>Alamat</th>
+                    <th>Sejarah</th>
+                    <th>Peraturan</th>
+                    <th>Geografis</th>
+                    <th>Kontak</th>
+                </tr>
+                {%for data in Data%}
+                <tr>
+                    <td>{{data.nama_desa}}</td>
+                    <td>{{data.visi}}</td>
+                    <td>{{data.misi}}</td>
+                    <td>{{data.alamat}}</td>
+                    <td>{{data.sejarah}}</td>
+                    <td>{{data.peraturan}}</td>
+                    <td>{{data.geografis}}</td>
+                    <td>{{data.kontak}}</td>
+                    {%if current_user.is_authenticated%}
+                    <td><a href="{{url_for('Sadmin.editprofil')}}/{{data.id}}" class="btn btn-warning btn-xs" data-toggle="modal"
+                data-target="#modalEdit{{data.id}}">Edit</a></td>
+                </tr>
+                {%else%}
+                {%endif%}
+            </table>
+
+            <!-- awal edit data pengaduan -->
+            <div id="modalEdit{{data.id}}" class="modal fade " role="dialog">
+                <div class="modal-dialog">
+                    <!-- modal konten -->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Edit Data</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{url_for('Sadmin.editprofil')}}" method="POST">
+                                <div class="form-group">
+                                    <label>Nama Desa:</label><br>
+                                    <input type="hidden" name="id" value="{{data.id}}">
+                                    <textarea name="nama_desa id="nama_desa" cols="60"
+                                        rows="10">{{data.nama_desa}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Visi:</label>
+                                    <textarea name="visi" id="visi" cols="60"
+                                        rows="10">{{data.visi}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Misi:</label>
+                                    <textarea name="misi" id="misi" cols="60"
+                                        rows="10">{{data.misi}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Alamat : </label><br>
+                                    <input type="hidden" name="id" value="{{data.id}}">
+                                    <textarea class="form-control" name="alamat" id="alamat cols="60"
+                                        rows="10">{{data.alamat}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Sejarah:</label>
+                                    <input type="hidden" name="id" value="{{data.id}}">
+                                    <textarea name="sejarah" id="sejarah" cols="60"
+                                        rows="10">{{data.sejarah}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Peraturan:</label>
+                                    <input type="hidden" name="id" value="{{data.id}}">
+                                    <textarea name="peraturan" id="peraturan" cols="60"
+                                        rows="10">{{data.peraturan}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Geografis:</label>
+                                    <input type="hidden" name="id" value="{{data.id}}">
+                                    <textarea name="geografis id="geografis" cols="60"
+                                        rows="10">{{data.geografis}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Kontak:</label>
+                                    <input type="hidden" name="id" value="{{data.id}}">
+                                    <textarea name="kontak" id="kontak" cols="60"
+                                        rows="10">{{data.kontak}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
+                            </form>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- akhir data pengaduan -->
+            {%endfor%}
+
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{url_for('static', filename='img/1.jpeg')}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Pengambilan Data</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional
+                        content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock konten %}

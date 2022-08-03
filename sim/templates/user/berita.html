@@ -1,0 +1,25 @@
+{%extends "user/base.html"%}
+
+{% block konten %}
+<div class="container">
+  <div class="row">
+    <div class="section-title">
+      <p>Berita Desa Tembal</p>
+    </div>
+    {% for data in databerita %}
+    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+      <div class="member">
+        <div class="member-img">
+          <img src="{{url_for('static', filename='foto/' + data.gambar)}}" class="img-fluid" alt="">
+        </div>
+        
+        <div class="member-info">
+          <h4>{{data.judul}}</h4>
+          <span>{{data.kategori}}|{{data.tanggal}}</span>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+</div>
+{% endblock konten %}

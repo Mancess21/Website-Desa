@@ -1,0 +1,91 @@
+{%extends "user/base.html"%}
+
+
+
+
+{% block konten %} 
+
+ <section id="wisata" class="wisata">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>DATA PENDIDIKAN</h2>
+          <h3>DATA<span> PENDIDIKAN</span></h3>
+          <p>Berikut kami informasi Pendidikan desa tembal</p>
+        </div>
+
+        <div class="row">
+            
+                     <div class="table-responsive p-0">
+                      <table class="table align-items-center mb-0 table-hover ">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Tahun</th>
+                                <th>Tidak SD</th>
+                                <th>Tamat Sd</th>
+                                <th>Tamat Smp</th>
+                                <th>Tamat Sma</th>
+                                <th>Tamat S1</th>
+                                <th>Tamat S2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for data in pendidikan.items%}
+                            <tr>
+                                <td>{{data.id}}</ol></td>
+                                <td>{{data.tahun}}</td>
+                                <td>{{data.tdk_sd}}</td>
+                                <td>{{data.tamat_sd}}</td>
+                                <td>{{data.tamat_smp}}</td>
+                                <td>{{data.tamat_sma}}</td>
+                                <td>{{data.tamat_s1}}</td>
+                                <td>{{data.tamat_s2}}</td>
+                               
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                      </table>
+
+                          <!-- kode pagenation -->
+                      <nav aria-label="Page navigation example">
+                          <ul class="pagination">
+                            {% if pendidikan.has_prev %}
+                              <li class="page-item"><a class="page-link" href="{{ url_for('Suser.userdemo', page=demografi.prev_num)}}"><<</a></li>
+                            {% else %}
+                              <li class="page-item disabled"><a class="page-link"><<</a>
+                            {% endif %}
+                              </li>
+          
+                            {% for page in pendidikan.iter_pages(left_edge=3, right_edge=3) %}
+                            {% if page %}
+                                {% if page==pendidikan.page %}
+                                <li class="page-item active"><a class="page-link" href="{{ url_for('Suser.userpendidikan', page=page)}}">{{ page }}</a></li>
+                                {% else %}
+                                <li class="page-item"><a class="page-link" href="{{ url_for('Suser.userpendidikan', page=page)}}">{{ page }}</a></li>
+                                {% endif %}
+                            {% else %}
+                            <li class="page-item disabled" id="example_ellipsis"><a class="page-link" href="#">...</a></li>
+                            {% endif %}
+                            {% endfor %}
+          
+                            {% if pendidikan.has_next %}
+                            <li class="page-item"><a class="page-link" href="{{ url_for('Suser.userpendidikan', page=pendidikan.next_num)}}">>></a></li> <!-- next-->
+                            {% else %}
+                            <li class="page-item disabled"><a class="page-link" href="#">>></a></li>
+                            {% endif %}
+                          </ul>
+                        </nav>
+                      <!-- akhir kode pagenation -->
+
+
+
+                  </div>
+
+        </div>
+          
+
+
+    </section><!-- End Team Section -->
+      
+{% endblock konten %}

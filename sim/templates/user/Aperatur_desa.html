@@ -1,0 +1,26 @@
+{%extends "user/base.html"%}
+
+{% block konten %} 
+<div class="container">
+    <div class="row">
+        {% for data in dataaperatur %}
+        <div class="col-mx">
+            <p>{{data.nama}}</p>
+            <p>{{data.jabatan}}</p>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+{% endblock konten %}
+<section id="profil" class="profil">
+    <div class="container">
+        <div class="">
+            <h2>Aparatur Desa</h2>
+            <br>
+            <p>{{data.nama}}</p>
+            <p>{{data.jabatan}}</p>
+            
+            {{ ckeditor.load() }}
+        </div>
+    </div>
+    </section>

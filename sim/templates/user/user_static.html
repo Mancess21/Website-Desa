@@ -1,0 +1,113 @@
+{%extends "user/base.html"%}
+
+{% block konten %} 
+<!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="text-center">
+          <h3>Call To Action</h3>
+          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <a class="cta-btn" href="#">Call To Action</a>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+    <!-- ======= Portfolio Section di ganti ke statistik ======= -->
+    <section id="statistik" class="statistik">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Data Statistik Desa Tembal</h2>
+          <h3>Data <span>Statistik</span></h3>
+          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+        </div>
+
+        <div class="row">
+            {% for data in datakuliner.items %}
+          <div class="col-lg-4 col-md-6">
+            <div class="box">
+              <h3>Pendidikan</h3>
+              <ul>
+                <li>Aida dere</li>
+                <li>Nec feugiat nisl</li>
+                <li>Nulla at volutpat dola</li>
+                <li class="na">Pharetra massa</li>
+                <li class="na">Massa ultricies mi</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">Buy Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+            <div class="box recommended">
+              <span class="recommended-badge">Recommended</span>
+              <h3>Business</h3>
+              <h4><sup>$</sup>19<span> / month</span></h4>
+              <ul>
+                <li>Aida dere</li>
+                <li>Nec feugiat nisl</li>
+                <li>Nulla at volutpat dola</li>
+                <li>Pharetra massa</li>
+                <li class="na">Massa ultricies mi</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">Buy Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+            <div class="box">
+              <h3>Developer</h3>
+              <h4><sup>$</sup>29<span> / month</span></h4>
+              <ul>
+                <li>Aida dere</li>
+                <li>Nec feugiat nisl</li>
+                <li>Nulla at volutpat dola</li>
+                <li>Pharetra massa</li>
+                <li>Massa ultricies mi</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">Buy Now</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        {%endfor%}
+      </div>
+
+      <nav aria-label="Page navigation example">
+                          <ul class="pagination">
+                            {% if datapendidikan.has_prev %}
+                              <li class="page-item"><a class="page-link" href="{{ url_for('Suser.userstatic', page=datapendidikan.prev_num)}}"><<</a></li>
+                            {% else %}
+                              <li class="page-item disabled"><a class="page-link"><<</a>
+                            {% endif %}
+                              </li>
+          
+                            {% for page in datapendidikan.iter_pages(left_edge=3, right_edge=3) %}
+                            {% if page %}
+                                {% if page==datapendidikan.page %}
+                                <li class="page-item active"><a class="page-link" href="{{ url_for('Suser.userstatic', page=page)}}">{{ page }}</a></li>
+                                {% else %}
+                                <li class="page-item"><a class="page-link" href="{{ url_for('Suser.userstatic', page=page)}}">{{ page }}</a></li>
+                                {% endif %}
+                            {% else %}
+                            <li class="page-item disabled" id="example_ellipsis"><a class="page-link" href="#">...</a></li>
+                            {% endif %}
+                            {% endfor %}
+          
+                            {% if datapendidikan.has_next %}
+                            <li class="page-item"><a class="page-link" href="{{ url_for('Suser.userstatic', page=datapendidikan.next_num)}}">>></a></li> <!-- next-->
+                            {% else %}
+                            <li class="page-item disabled"><a class="page-link" href="#">>></a></li>
+                            {% endif %}
+                          </ul>
+                        </nav>
+    </section>
+{% endblock konten %}

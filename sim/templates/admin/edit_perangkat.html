@@ -1,0 +1,85 @@
+{%extends "admin/base.html"%}
+
+{% block konten %}
+<div class="row my-4">
+        <div class="col-lg-12 col-md-6 mb-md-0 mb-4">
+        <div class="card">
+            <div class="card-header pb-0">
+            <div class="row">
+                <div class="col-lg-4">
+                    <p>Masukan Perubahan Data Perangkat</p>
+                    <form method="POST" enctype="multipart/form-data">
+                        {{form.hidden_tag()}}
+                        <div class="form-group">
+                            {{form.nama.label(class="form-control-label")}}
+                            {% if form.nama.errors %}
+                                {{form.nama(class="form-control is-invalid")}}
+                        
+                                <div class="invalid-feedback">
+                                    {%for error in form.nama.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                            {%else%}
+                                {{form.nama(class="form-control")}}
+                            
+                            {%endif%}
+                        </div>
+                        <div class="form-group">
+                            {{form.jabatan.label(class="form-control-label")}}
+                            {% if form.jabatan.errors %}
+                                {{form.jabatan(class="form-control is-invalid")}}
+                        
+                                <div class="invalid-feedback">
+                                    {%for error in form.jabatan.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                            {%else%}
+                                {{form.jabatan(class="form-control")}}
+                            
+                            {%endif%}
+                        </div>
+                        <div class="form-group">
+                            {{form.gambar.label(class="form-control-label")}}
+                            {% if form.gambar.errors %}
+                                {{form.gambar(class="form-control is-invalid")}}
+                        
+                                <div class="invalid-feedback">
+                                    {%for error in form.gambar.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                            {%else%}
+                                {{form.gambar(class="form-control")}}
+                            
+                            {%endif%}
+                        </div>
+
+                        <div class="form-group">
+                            {{form.submit(class="btn btn-primary")}}
+                        </div>
+                
+                    </form>
+                    
+                </div>
+
+                <div class="col-lg-8">
+                    <p></p>
+                
+
+
+                </div>
+                
+                
+                
+            </div>
+            </div>
+            <div class="card-body px-0 pb-2"> 
+            </div>
+        </div>
+        </div>
+        
+</div>
+
+{% endblock konten %}

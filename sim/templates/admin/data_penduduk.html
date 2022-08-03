@@ -1,0 +1,178 @@
+{%extends "admin/base.html"%}
+
+{% block konten %}
+<div class="row my-4">
+        <div class="col-lg-12 col-md-6 mb-md-0 mb-4">
+          <div class="card">
+            <div class="card-header pb-0">
+              <div class="row">
+                <div class="col-lg-4">
+                    <p>Masukan Data Penduduk</p>
+                      <form method="POST">
+                          {{form.hidden_tag()}}
+                          <div class="form-group">
+                              {{form.no_ktp.label(class="form-control-label")}}
+                              {{form.no_ktp(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.no_kk.label(class="form-control-label")}}
+                              {{form.no_kk(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.nama.label(class="form-control-label")}}
+                              {{form.nama(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.tgl_lahir.label(class="form-control-label")}}
+                              {{form.tgl_lahir(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.j_kelamin.label(class="form-control-label")}}
+                              {{form.j_kelamin(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.agama.label(class="form-control-label")}}
+                              {{form.agama(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.pendidikan.label(class="form-control-label")}}
+                              {{form.pendidikan(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.pekerjaan.label(class="form-control-label")}}
+                              {{form.pekerjaan(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.alamat.label(class="form-control-label")}}
+                              {{form.alamat(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.RT.label(class="form-control-label")}}
+                              {{form.RT(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.RW.label(class="form-control-label")}}
+                              {{form.RW(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.s_nikah.label(class="form-control-label")}}
+                              {{form.s_nikah(class="form-control ")}}
+                          </div>
+                          <div class="form-group">
+                              {{form.kewarganegaraan.label(class="form-control-label")}}
+                              {{form.kewarganegaraan(class="form-control ")}}
+                          </div>
+                  
+                          <div class="form-group">
+                              {{form.submit(class="btn btn-primary")}}
+                          </div>
+                  
+                      </form>
+                    
+                </div>
+
+                <div class="col-lg-8">
+                    <p>Data Penduduk</p>
+                <form action="" method="POST" > <!-- form search -->
+                    {{form.hidden_tag()}}
+                    <div class="input-group">
+                    <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" placeholder="masukan tahun..." name="tag" id="tag">
+                    <input class="btn btn-bg-primary" type="submit" value="Cari">
+                </div>                   
+                </form>
+
+                  <div class="table-responsive p-0">
+                      <table class="table align-items-center mb-0 table-hover ">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>No KTP</th>
+                                <th>No KK</th>
+                                <th>Nama</th>
+                                <th>Tanggal Lahir</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Agama</th>
+                                <th>Pendidikan</th>
+                                <th>Pekerjaan</th>
+                                <th>Alamat</th>
+                                <th>RT</th>
+                                <th>RW</th>
+                                <th>Sudah Nikah</th>
+                                <th>Kewarganagaraan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for data in penduduk.items%}
+                            <tr>
+                                <td>{{data.id}}</ol></td>
+                                <td>{{data.no_ktp}}</td>
+                                <td>{{data.no_kk}}</td>
+                                <td>{{data.nama}}</td>
+                                <td>{{data.tgl_lahir}}</td>
+                                <td>{{data.j_kelamin}}</td>
+                                <td>{{data.agama}}</td>
+                                <td>{{data.pendidikan}}</td>
+                                <td>{{data.pekerjaan}}</td>
+                                <td>{{data.alamat}}</td>
+                                <td>{{data.Rt}}</td>
+                                <td>{{data.Rw}}</td>
+                                <td>{{data.s_nikah}}</td>
+                                <td>{{data.kewarganagaraan}}</td>
+                                <td>
+                                  <a class="btn bg-gradient-warning" href="{{url_for('Sadmin.update_penduduk', ed_id=data.id)}}">Ubah</a>
+                                  <a class="btn bg-gradient-danger" href="/hapuspenduduk/{{data.id}}" onclick="return confirm('Yakin data akan di hapus')">Hapus</a>
+                                </td>
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                      </table>
+
+                      <!-- kode pagenation -->
+                      <nav aria-label="Page navigation example">
+                          <ul class="pagination">
+                            {% if penduduk.has_prev %}
+                              <li class="page-item"><a class="page-link" href="{{ url_for('Sadmin.dt_penduduk', page=penduduk.prev_num)}}"><<</a></li>
+                            {% else %}
+                              <li class="page-item disabled"><a class="page-link"><<</a>
+                            {% endif %}
+                              </li>
+          
+                            {% for page in penduduk.iter_pages(left_edge=3, right_edge=3) %}
+                            {% if page %}
+                                {% if page==penduduk.page %}
+                                <li class="page-item active"><a class="page-link" href="{{ url_for('Sadmin.dt_penduduk', page=page)}}">{{ page }}</a></li>
+                                {% else %}
+                                <li class="page-item"><a class="page-link" href="{{ url_for('Sadmin.dt_penduduk', page=page)}}">{{ page }}</a></li>
+                                {% endif %}
+                            {% else %}
+                            <li class="page-item disabled" id="example_ellipsis"><a class="page-link" href="#">...</a></li>
+                            {% endif %}
+                            {% endfor %}
+          
+                            {% if penduduk.has_next %}
+                            <li class="page-item"><a class="page-link" href="{{ url_for('Sadmin.dt_penduduk', page=penduduk.next_num)}}">>></a></li> <!-- next-->
+                            {% else %}
+                            <li class="page-item disabled"><a class="page-link" href="#">>></a></li>
+                            {% endif %}
+                          </ul>
+                        </nav>
+                      <!-- akhir kode pagenation -->
+
+
+
+                  </div>
+
+                </div>
+                
+                
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2"> 
+            </div>
+          </div>
+        </div>
+        
+</div>
+
+{% endblock konten %}

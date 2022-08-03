@@ -1,0 +1,37 @@
+{%extends "base.html"%}
+
+{%block title%}
+<h3 class="display-5">Sistem Informasi Desa Tembal</h3>
+<p class="lead">Visi Misi Desa Tembal</p>
+{%endblock  title%}
+
+{%block konten%}
+<div class="row">
+    <div class="col-md-8">
+        {% for data in form %}
+        <div style="border: 1px solid #ED002C; margin: 5px; padding: 20px; border-radius: 20px;">
+            <h3>Visi Misi</h3>
+            <hr>
+            <h4>Visi</h4>
+            <p>{{data.visi}}</p>
+            <br>
+            <h4>Misi</h4>
+            <p>{{data.misi}}</p>
+            <br>
+        </div>
+
+        {%endfor%}
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img src="{{url_for('static', filename='img/1.jpeg')}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Pengambilan Data</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,54 @@
+{%extends "base2.html"%}
+
+{%block title%}
+<h3 class="display-5">Sistem Informasi Kelurahan Kalumpang</h3>
+<p class="lead">Sejarah Kelurahan Kalumpang</p>
+{%endblock%}
+
+
+{%block konten%}
+<h1>Megisi data Profil kelurahan kalumpang</h1>
+<form method="POST">
+    {{form.hidden_tag()}}
+    <div class="form-group">
+        {{form.nama_desa.label(class="form-control-label")}}
+        {{form.nama_desa(class="form-control ")}}
+    </div>
+    <div class="form-group">
+        {{form.visi.label(class="form-control-label")}}
+        {{form.visi(class="form-control ")}}
+    </div>
+    <div class="form-group">
+        {{form.misi.label(class="form-control-label")}}
+        {{form.misi(class="form-control ")}}
+    </div>
+    <div class="form-group">
+        {{form.alamat.label(class="form-control-label")}}
+        {{form.alamat(class="form-control ")}}
+    </div>
+    <div class="form-group">
+        {{form.sejarah.label(class="form-control-label")}}
+        {{form.sejarah(class="form-control ")}}
+    </div>
+    <div class="form-group">
+        {{form.peraturan.label(class="form-control-label")}}
+        {{form.peraturan(class="form-control ")}}
+    </div>
+    <div class="form-group">
+        {{form.geografis.label(class="form-control-label")}}
+        {{form.geografis(class="form-control ")}}
+    </div>
+    <div class="form-group">
+        {{form.kontak.label(class="form-control-label")}}
+        {{form.kontak(class="form-control ")}}
+    </div>
+
+    <div class="form-group">
+        {{form.submit(class="btn btn-primary")}}
+    </div>
+
+</form>
+
+</div>
+</div>
+{%endblock%}

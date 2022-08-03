@@ -1,0 +1,24 @@
+{%extends "user/base.html"%}
+{% block konten %}
+<section id="wisata" class="wisata">
+      <div class="container">
+        <div class="row">
+          <div class="section-title">
+            <p>Wisata Desa Tembal</p>
+          </div>
+          {% for data in datawisata %}
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="{{url_for('static', filename='foto/' + data.gambar)}}" class="img-fluid" alt="">
+              </div>
+              <div class="member-info">
+                <h4>{{data.nama}}</h4>
+                <span>{{data.kategori}}</span>
+              </div>
+            </div>
+          </div>
+          {%endfor%}
+    </div>
+</section><!-- End Team Section -->
+{% endblock konten %}

@@ -1,0 +1,76 @@
+{%extends "user/base.html"%}
+{% block konten %} 
+
+<section id="wisata" class="wisata">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>DATA DEMOGRAFI</h2>
+          <h3>DATA<span> DEMOGRAFI</span></h3>
+          <p>Berikut kami informasi demografi desa tembal</p>
+        </div>
+
+        <div class="row">
+            <div class="table-responsive p-0">
+                      <table class="table align-items-center mb-0 table-hover ">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Tahun</th>
+                                <th>Laki-Laki</th>
+                                <th>Perempuan</th>
+                                <th>Laju</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for data in demografi.items%}
+                            <tr>
+                                <td>{{data.id}}</ol></td>
+                                <td>{{data.tahun}}</td>
+                                <td>{{data.jumlah_l}}</td>
+                                <td>{{data.jumlah_p}}</td>
+                                <td>{{data.laju_pertumbuhan}}</td>
+                                
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                      </table>
+
+        </div>
+          
+
+     <!-- kode pagenation -->
+                      <nav aria-label="Page navigation example">
+                          <ul class="pagination">
+                            {% if demografi.has_prev %}
+                              <li class="page-item"><a class="page-link" href="{{ url_for('Suser.userdemo', page=demografi.prev_num)}}"><<</a></li>
+                            {% else %}
+                              <li class="page-item disabled"><a class="page-link"><<</a>
+                            {% endif %}
+                              </li>
+          
+                            {% for page in demografi.iter_pages(left_edge=3, right_edge=3) %}
+                            {% if page %}
+                                {% if page==demografi.page %}
+                                <li class="page-item active"><a class="page-link" href="{{ url_for('Suser.userdemo', page=page)}}">{{ page }}</a></li>
+                                {% else %}
+                                <li class="page-item"><a class="page-link" href="{{ url_for('Suser.userdemo', page=page)}}">{{ page }}</a></li>
+                                {% endif %}
+                            {% else %}
+                            <li class="page-item disabled" id="example_ellipsis"><a class="page-link" href="#">...</a></li>
+                            {% endif %}
+                            {% endfor %}
+          
+                            {% if demografi.has_next %}
+                            <li class="page-item"><a class="page-link" href="{{ url_for('Suser.userdemo', page=demografi.next_num)}}">>></a></li> <!-- next-->
+                            {% else %}
+                            <li class="page-item disabled"><a class="page-link" href="#">>></a></li>
+                            {% endif %}
+                          </ul>
+                        </nav>
+                      <!-- akhir kode pagenation -->
+
+    </section><!-- End Team Section -->
+      
+{% endblock konten %}

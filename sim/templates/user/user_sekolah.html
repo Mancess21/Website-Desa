@@ -1,0 +1,85 @@
+{%extends "user/base.html"%}
+
+
+
+
+{% block konten %} 
+
+ <section id="wisata" class="wisata">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>DATA Putus Sekolah</h2>
+          <h3>DATA<span> Putus Sekolah</span></h3>
+          <p>Berikut kami informasi Putus Sekolah desa tembal</p>
+        </div>
+
+        <div class="row">
+            
+                     <div class="table-responsive p-0">
+                      <table class="table align-items-center mb-0 table-hover ">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Tahun</th>
+                                <th>SD</th>
+                                <th>Sd</th>
+                                <th>Smp</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for data in datasekolah.items%}
+                            <tr>
+                                <td>{{data.id}}</ol></td>
+                                <td>{{data.tahun}}</td>
+                                <td>{{data.sd}}</td>
+                                <td>{{data.smp}}</td>
+                                <td>{{data.sma}}</td>
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                      </table>
+
+                          <!-- kode pagenation -->
+                      <nav aria-label="Page navigation example">
+                          <ul class="pagination">
+                            {% if datasekolah.has_prev %}
+                              <li class="page-item"><a class="page-link" href="{{ url_for('Suser.usersekolah', page=demografi.prev_num)}}"><<</a></li>
+                            {% else %}
+                              <li class="page-item disabled"><a class="page-link"><<</a>
+                            {% endif %}
+                              </li>
+          
+                            {% for page in datasekolah.iter_pages(left_edge=3, right_edge=3) %}
+                            {% if page %}
+                                {% if page==datasekolah.page %}
+                                <li class="page-item active"><a class="page-link" href="{{ url_for('Suser.usersekolah', page=page)}}">{{ page }}</a></li>
+                                {% else %}
+                                <li class="page-item"><a class="page-link" href="{{ url_for('Suser.usersekolah', page=page)}}">{{ page }}</a></li>
+                                {% endif %}
+                            {% else %}
+                            <li class="page-item disabled" id="example_ellipsis"><a class="page-link" href="#">...</a></li>
+                            {% endif %}
+                            {% endfor %}
+          
+                            {% if datasekolah.has_next %}
+                            <li class="page-item"><a class="page-link" href="{{ url_for('Suser.usersekolah', page=datasekolah.next_num)}}">>></a></li> <!-- next-->
+                            {% else %}
+                            <li class="page-item disabled"><a class="page-link" href="#">>></a></li>
+                            {% endif %}
+                          </ul>
+                        </nav>
+                      <!-- akhir kode pagenation -->
+
+
+
+                  </div>
+
+        </div>
+          
+
+
+
+    </section><!-- End Team Section -->
+      
+{% endblock konten %}

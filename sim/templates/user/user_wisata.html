@@ -1,0 +1,74 @@
+{%extends "user/base.html"%}
+
+
+
+
+{% block konten %} 
+
+ <section id="wisata" class="wisata">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Wisata</h2>
+          <h3>Kunjungi Wisata<span> Bacan</span></h3>
+          <p>Ayo Berkunjung di Wisata Wisata Bacan , di lengkapi dengan berbagai Fasilitas dan Tempat yang Keren.</p>
+        </div>
+
+        <div class="row">
+          {% for data in datakuliner.items %}
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="{{url_for('static', filename='foto/' + data.gambar)}}" class="img-fluid" alt="">
+                <!-- <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div> -->
+              </div>
+
+              <div class="member-info">
+                <h4>{{data.nama}}</h4>
+                <span>{{data.kategori}}</span>
+                <a href="{{url_for('Suser.detail_wisata', ed_id=data.id)}}" class="btn-get-started scrollto">Selengkapnya</a>
+              </div>
+            </div>
+          </div>
+          {%endfor%}
+      </div>
+
+      <!-- kode pagenation -->
+                      <nav aria-label="Page navigation example">
+                          <ul class="pagination">
+                            {% if datakuliner.has_prev %}
+                              <li class="page-item"><a class="page-link" href="{{ url_for('Suser.userwisata', page=datakuliner.prev_num)}}"><<</a></li>
+                            {% else %}
+                              <li class="page-item disabled"><a class="page-link"><<</a>
+                            {% endif %}
+                              </li>
+          
+                            {% for page in datakuliner.iter_pages(left_edge=3, right_edge=3) %}
+                            {% if page %}
+                                {% if page==datakuliner.page %}
+                                <li class="page-item active"><a class="page-link" href="{{ url_for('Suser.userwisata', page=page)}}">{{ page }}</a></li>
+                                {% else %}
+                                <li class="page-item"><a class="page-link" href="{{ url_for('Suser.userwisata', page=page)}}">{{ page }}</a></li>
+                                {% endif %}
+                            {% else %}
+                            <li class="page-item disabled" id="example_ellipsis"><a class="page-link" href="#">...</a></li>
+                            {% endif %}
+                            {% endfor %}
+          
+                            {% if datakuliner.has_next %}
+                            <li class="page-item"><a class="page-link" href="{{ url_for('Suser.userwisata', page=datakuliner.next_num)}}">>></a></li> <!-- next-->
+                            {% else %}
+                            <li class="page-item disabled"><a class="page-link" href="#">>></a></li>
+                            {% endif %}
+                          </ul>
+                        </nav>
+                      <!-- akhir kode pagenation -->
+
+    </section><!-- End Team Section -->
+      
+{% endblock konten %}

@@ -1,0 +1,684 @@
+{%extends "user/base.html"%} 
+{% block konten %} 
+
+<section id="profil" class="profil">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-mg-12">
+        <div class="subject-cover-image">
+          <center>
+            <img src="{{url_for('static', filename='img/Kantor Desa.jpg')}}" alt="" class="" height="400px" width="550px">
+          </center>
+        </div>
+        <div>
+          {% for data in dataprofil %}
+          <table style="width: 739px;" width:"902">
+            <tbody>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398"></td>
+                <td style="width: 176px; height: 19px;" width:"227"></td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398"></td>
+                <td style="width: 176px; height: 19px;" width:"227"></td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398"></td>
+                <td style="width: 176px; height: 19px;" width:"227"></td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Tahun</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">2022</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Kode Desa</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">-</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Desa/Kelurahan</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">{{data.nama_desa|safe}}</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Kecamatan</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">Bacan Selatan</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Kabupaten</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">Halmahera Selatan</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Provinsi</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">Maluku Utara</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Tahun Pembentukan</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">2008</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Luas Desa</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">3.910</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Penetapan Batas</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">Tidak Ada</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Peta Wilayah</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">Ada</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">kordinat</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">-0.6581844277076628, 127.48265068886667</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Batas Wilayah</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">Sebelah Utara</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156">
+                  <span style="vertical-align: inherit;">Desa Mandaong</span>
+                </td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">Sebelah Timur</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156">
+                  <span style="vertical-align: inherit;">Desa Papaloang</span>
+                </td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">Sebelah Selatan</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156">
+                  <span style="vertical-align: inherit;">Desa Kupal</span>
+                </td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">Sebelah Barat</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156">
+                  <span style="vertical-align: inherit;">Laut</span>
+                </td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398"></td>
+                <td style="width: 176px; height: 19px;" width:"227"></td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398"></td>
+                <td style="width: 176px; height: 19px;" width:"227"></td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <!-- 1 -->
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">A. PERSONIL</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227"></td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">1. Kepala Desa/Lurah</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227"></td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- Nama</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">DJAFAR ABDJAN</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- Pangkat/Golongan</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- NIP</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- Pendidikan Terakhir</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- Pelatihan Yang Pernah Diikuti</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- Jenis Kelamin</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">Laki - Laki</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <!-- 2 -->
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">2. Sekertaris Desa/Kelurah</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227"></td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- Nama</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- Pangkat/Golongan</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- NIP</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- Pendidikan Terakhir</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- Pelatihan Yang Pernah Diikuti</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- Jenis Kelamin</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">Laki - Laki</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <!-- 3 -->
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">3. Badan Permusyawaratan Desa</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227"></td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- Nama</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- Pendidikan Terakhir</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- Pelatihan Yang Pernah Diikuti</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;"></span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">- Jenis Kelamin</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">Laki - Laki</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <!-- B -->
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">B. Data Umum</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227"></td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">1. Tataguna Lahan dan Produksi sebuah Tataguna Lahan</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227"></td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Sawah (Ha)</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">60.0</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Permukiman (Ha)</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">25.0</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Fasilitas Umum (Ha)</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">15.0</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Hutan (Ha)</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">7.50</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <!-- Penduduk Dan Kepala Keluarga -->
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">2. Penduduk Dan Kepala Keluarga</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227"></td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Jumlah Laki-Laki (Orang)</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">872</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Jumlah Perempuan (Orang)</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">850</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Jumlah Total (Orang)</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">1722</span>
+                </td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <!-- Usia Penduduk -->
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">b. Komposisi Usia Penduduk</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227"></td>
+                <td style="width: 159px; height: 19px;" width:"156"></td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <!-- Laki-Laki -->
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Laki-Laki</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227"></td>
+                <td style="width: 159px; height: 19px;" width:"156">
+                  <span style="vertical-align: inherit;">Perempuan</span>
+                </td>
+                <td style="width: 140px; height: 19px;" width:"121"></td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 0 - 4</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">100</span>
+                </td>
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 0 - 4</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">97</span>
+                </td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 5 - 9</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">97</span>
+                </td>
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 5 - 9</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">95</span>
+                </td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 10 - 14</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">96</span>
+                </td>
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 10 - 14</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">95</span>
+                </td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 15 - 19</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">104</span>
+                </td>
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 14 - 19</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">102</span>
+                </td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 20 - 24</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">95</span>
+                </td>
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 20 - 24</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">93</span>
+                </td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 25 - 29</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">80</span>
+                </td>
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 25 - 29</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">79</span>
+                </td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 30 - 39</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">137</span>
+                </td>
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 30 - 39</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">133</span>
+                </td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 40 - 49</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">96</span>
+                </td>
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 40 - 49</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">85</span>
+                </td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 50 - 59</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">40</span>
+                </td>
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia 50 - 59</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">39</span>
+                </td>
+              </tr>
+              <tr style="height: 19px;">
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia >60</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">27</span>
+                </td>
+                <td style="width: 264px; height: 19px;" width:"398">
+                  <span style="vertical-align: inherit;">Usia >60</span>
+                </td>
+                <td style="width: 176px; height: 19px;" width:"227">
+                  <span style="vertical-align: inherit;">32</span>
+                </td>
+              </tr>
+              
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endfor%}
+</section>
+
+{% endblock konten %}
+
